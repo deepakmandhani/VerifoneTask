@@ -4,6 +4,8 @@ Sequence Diagram:-
    |
    | — DashboardViewModel.init() → loadDashboard()
    |
+
+   
 [UseCase]
    |
    | — invoke()
@@ -11,6 +13,8 @@ Sequence Diagram:-
    |     → repository.fetchTransactions(profile.id)
    |     → repository.fetchConfig()
    |
+
+   
 [Repository]
    |
    | — Returns Data OR throws exception
@@ -18,10 +22,14 @@ Sequence Diagram:-
    |     → apiService.fetchTransactions(profile.id)
    |     → apiService.fetchConfig()
    |
+
+   
 [ViewModel]
    |
    | — Updates StateFlow: Loading → Success/Error
    |
+
+   
 [UI Layer]
    |
    | — Observes state → Compose renders Loading/Success/Error
