@@ -1,12 +1,14 @@
 Sequence Diagram:-
 
 [UI Layer]
+
    |
    | — DashboardViewModel.init() → loadDashboard()
    |
 
    
 [UseCase]
+
    |
    | — invoke()
    |     → repository.fetchProfile()
@@ -16,6 +18,7 @@ Sequence Diagram:-
 
    
 [Repository]
+
    |
    | — Returns Data OR throws exception
    |     → apiService.fetchProfile()
@@ -25,11 +28,17 @@ Sequence Diagram:-
 
    
 [ViewModel]
+
    |
    | — Updates StateFlow: Loading → Success/Error
    |
 
    
 [UI Layer]
+
    |
    | — Observes state → Compose renders Loading/Success/Error
+
+
+To simulate errors in API, replace with below-
+ApiModule -> provideApiService() -> return FakeApiService(FakeApiService.FailPoint.TRANSACTIONS)
